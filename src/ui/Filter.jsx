@@ -11,23 +11,28 @@ const StyledFilter = styled.div`
   gap: 0.4rem;
 `;
 
-const FilterButton = styled.button`
-  background-color: var(--color-grey-0);
-  border: none;
+const FilterButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== "active",
+})`
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: 0.44rem 0.8rem;
+  transition: all 0.3s;
 
+  /* inactive state */
+  background-color: transparent;
+  border: 0.5px solid var(--color-grey-100);
+  color: var(--color-grey-700);
+
+  /* active state */
   ${(props) =>
     props.active &&
     css`
       background-color: var(--color-brand-600);
       color: var(--color-brand-50);
+      border: none; /* remove border when active */
     `}
-
-  border-radius: var(--border-radius-sm);
-  font-weight: 500;
-  font-size: 1.4rem;
-  /* To give the same height as select */
-  padding: 0.44rem 0.8rem;
-  transition: all 0.3s;
 
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
