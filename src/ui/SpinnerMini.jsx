@@ -8,6 +8,7 @@ const rotate = keyframes`
 `;
 
 const SpinnerMini = styled(BiLoaderAlt)`
+  margin-right: 10px;
   width: 2.4rem;
   height: 2.4rem;
   animation: ${rotate} 1.5s infinite linear;
