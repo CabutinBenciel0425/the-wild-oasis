@@ -5,7 +5,7 @@ export async function signup({ fullName, email, password }) {
     email,
     password,
     options: {
-      user_metadata: {
+      data: {
         fullName,
         avatar: "",
       },
