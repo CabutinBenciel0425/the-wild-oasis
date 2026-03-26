@@ -22,12 +22,12 @@ const Icon = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: var(--color-${(props) => props.color}-100);
+  background-color: ${({ color }) => `var(--color-${color}-100)`};
 
   & svg {
     width: 3.2rem;
     height: 3.2rem;
-    color: var(--color-${(props) => props.color}-700);
+    color: ${({ color }) => `var(--color-${color}-700)`};
   }
 `;
 
