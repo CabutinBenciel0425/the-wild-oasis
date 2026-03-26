@@ -1,19 +1,31 @@
-import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
+import SpinnerMini from "../../ui/SpinnerMini";
 import Input from "../../ui/Input";
 
+import { useForm } from "react-hook-form";
 import { useUpdateUser } from "./useUpdateUser";
+import { useLogout } from "./useLogout";
 
 function UpdatePasswordForm() {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
+  const { logout } = useLogout();
+
   const { errors } = formState;
 
   const { updateUser, isUpdating } = useUpdateUser();
 
   function onSubmit({ password }) {
-    updateUser({ password }, { onSuccess: reset });
+    updateUser(
+      { password },
+      {
+        onSuccess: () => {
+          reset();
+          logout();
+        },
+      },
+    );
   }
 
   return (
@@ -57,7 +69,9 @@ function UpdatePasswordForm() {
         <Button onClick={reset} type="reset" variation="secondary">
           Cancel
         </Button>
-        <Button disabled={isUpdating}>Update password</Button>
+        <Button disabled={isUpdating}>
+          {!isUpdating ? "Update password" : <SpinnerMini />}
+        </Button>
       </FormRow>
     </Form>
   );
