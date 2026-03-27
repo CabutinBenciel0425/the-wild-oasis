@@ -1,5 +1,4 @@
 import {
-  HiCurrencyDollar,
   HiOutlineBanknotes,
   HiOutlineBriefcase,
   HiOutlineCalendarDays,
