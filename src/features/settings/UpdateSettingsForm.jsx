@@ -9,7 +9,6 @@ import Spinner from "../../ui/Spinner";
 function UpdateSettingsForm() {
   const {
     isLoading,
-    error,
     settings: {
       minBookingLength,
       maxBookingLength,

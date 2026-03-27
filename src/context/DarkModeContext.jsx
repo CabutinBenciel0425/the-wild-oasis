@@ -39,4 +39,4 @@ function useDarkMode() {
   return context;
 }
 
-export { DarkModeProvider, useDarkMode };
+export { DarkModeProvider, useDarkMode }; // eslint-disable-line
